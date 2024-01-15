@@ -1,24 +1,25 @@
 <?php
 
-use App\Http\Controllers\admin\PenggunaController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return Redirect::to('pengguna');
+    return Redirect::to('/login');
 });
 
-// route::get('halo', function(){
-//     return"Hallo Ini Uji Coba";
-// });
+Route::get('/admin', '\App\Http\Controllers\AdminController@index');
+Route::get('/admin/delete/{id}', '\App\Http\Controllers\AdminController@delete');
+Route::get('/admin/add', '\App\Http\Controllers\AdminController@add');
+Route::post('/admin/add_action', '\App\Http\Controllers\AdminController@add_action');
+Route::get('/admin/edit/{id}', '\App\Http\Controllers\AdminController@edit');
+Route::post('/admin/edit_action', '\App\Http\Controllers\AdminController@edit_action');
 
-//route resource
-// route admin
+Route::get('/karyawan', '\App\Http\Controllers\KaryawanController@index');
 
-// Route::resource('pengguna', \App\Http\Controllers\admin\PenggunaController::class);
-// Route::resource('dashboard', \App\Http\Controllers\admin\DashboardController::class);
+Route::get('/login', '\App\Http\Controllers\LoginController@index');
+Route::get('/logout', '\App\Http\Controllers\LoginController@logout');
+Route::get('/tes', '\App\Http\Controllers\LoginController@tes');
+Route::post('/login_action', '\App\Http\Controllers\LoginController@login_action');
 
-Route::get('/pengguna', '\App\Http\Controllers\admin\PenggunaController@index');
-Route::post('/pengguna/register','\App\Http\Controllers\admin\PenggunaController@register');
-Route::post('/pengguna/update','\App\Http\Controllers\admin\PenggunaController@update');
+Route::get('/register', '\App\Http\Controllers\LoginController@register');
+Route::post('/register_action', '\App\Http\Controllers\LoginController@register_action');

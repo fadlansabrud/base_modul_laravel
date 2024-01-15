@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+body, html {
+    font-family: "DM Sans",sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    width: 230px;
+    background-color: #343a40;
+    padding: 20px;
+    background: #aa4b6b;
+    background: -webkit-linear-gradient(to bottom, #3b8d99, #6b6b83, #aa4b6b);
+    background: linear-gradient(to bottom, #3b8d99, #6b6b83, #aa4b6b);
+}
+
+.sidebar-close {
+    width: 230px;
+    background-color: #343a40;
+    padding: 20px;
+    color: #fff;  
+    display: none;
+}
+
+.sidebar .logo {
+    text-align: center;
+}
+
+.sidebar .nama-pt {
+    text-align: center;
+    margin: 15px 0px 30px 0px;
+}
+
+.sidebar .nama-pt h2{
+    color: white;
+}
+
+.sidebar .logo img {
+    border-radius: 100%;
+    width: 100px;
+}
+
+#content {
+    flex: 1;
+}
+
+#header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#header button {
+    border: none;
+}
+
+#header a {
+    color: black;
+}
+
+#header a:hover {
+    color: blue;
+}
+
+.sidebar li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.sidebar li i {
+    margin-right: 10px;
+}
+
+.sidebar li a:hover {
+    color: #fff;
+    background-color: #17a2b8;
+    border-radius: 10px;
+}
+
+.sidebar .active {
+    color: #fff;
+    background-color: #17a2b8;
+    border-radius: 10px;
+}
+
+.isi {
+    padding: 25px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .sidebar-close {
+        height: 100%;
+        position: absolute;
+        display: block;
+    }
+    
+    #wrapper.active .sidebar {
+        display: block;
+        transform: translateX(0);
+    }
+    .list-footer {
+        width: 100px;
+        text-decoration: none;
+        list-style: none;
+        position: absolute;
+        bottom: 0;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .list-footer button{
+        border: none;
+        background-color: transparent;
+    }
+
+    .list-footer span{
+        font-size: 2rem;
+        color: white;
+    }
+}
