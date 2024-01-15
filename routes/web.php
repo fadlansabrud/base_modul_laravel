@@ -15,6 +15,10 @@ Route::get('/admin/edit/{id}', '\App\Http\Controllers\AdminController@edit');
 Route::post('/admin/edit_action', '\App\Http\Controllers\AdminController@edit_action');
 
 Route::get('/karyawan', '\App\Http\Controllers\KaryawanController@index');
+Route::post('/karyawan/add', '\App\Http\Controllers\KaryawanController@add');
+Route::post('/karyawan/edit', '\App\Http\Controllers\KaryawanController@edit');
+Route::get('/karyawan/delete/{id}', '\App\Http\Controllers\KaryawanController@delete');
+Route::get('/karyawan/print/{id}', '\App\Http\Controllers\KaryawanController@print');
 
 Route::get('/login', '\App\Http\Controllers\LoginController@index');
 Route::get('/logout', '\App\Http\Controllers\LoginController@logout');

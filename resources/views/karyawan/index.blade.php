@@ -11,10 +11,10 @@
         </div>
         <ul class="list-unstyled">
             @if(Auth::user()->role == 1)
-            <li>
+            <li class="active">
                 <a href="{{'/karyawan'}}"><i class="fa fa-file"></i>Calon Karyawan</a>
             </li>
-            <li class="active">
+            <li>
                 <a href="{{'/admin'}}"><i class="fa fa-users"></i>Data Admin</a>
             </li>
             @else
@@ -39,7 +39,6 @@
         </div>
       <div class="isi">
         <h2>{{$title}}</h2>
-        <a href="{{'/admin/add'}}" class="btn btn-sm btn-primary mb-3">Tambah Data Admin <i class="fa fa-plus"></i></a>
         @if(session('success'))
             <p class="alert alert-success">{{ session('success') }}</p>
         @endif
@@ -50,25 +49,21 @@
             <table class="table table-striped" width="100%">
                 <thead>
                     <tr>
-                        <th>Email Pengguna</th>
-                        <th>Jenis User</th>
-                        <th>Action</th>
+                        <th>Nama</th>
+                        <th>Tempat & Tanggal Lahir</th>
+                        <th>Posisi Yang Dilamar</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($data as $item)
                         <tr>
-                            <td>{{$item->email}}</td>
+                            <td>{{$item->nama}}</td>
+                            <td>{{$item->ttl}}</td>
+                            <td>{{$item->posisi}}</td>
                             <td>
-                                @if($item->role == 1)
-                                    Admin
-                                @else
-                                    Calon Karyawan
-                                @endif
-                            </td>
-                            <td>
-                            <a href="{{'/admin/edit/'.$item->id_user}}" class="btn btn-sm btn-success" title="Edit Data"><i class="fa fa-edit"></i></a>
-                                <a href="{{'/admin/delete/'.$item->id_user}}" class="btn btn-sm btn-danger" onclick="return confirm('Hapus Data Pengguna?');" title="Hapus Data"><i class="fa fa-trash"></i></a>
+                                <a href="{{'/karyawan/delete/'.$item->id_biodata}}" class="btn btn-sm btn-danger" onclick="return confirm('Hapus Data Calon Karyawan?');" title="Hapus Data Calon Karyawan"><i class="fa fa-trash"></i></a>
+                                <a href="{{'/karyawan/print/'.$item->id_biodata}}" class="btn btn-sm btn-success" onclick="return confirm('Print Data Calon Karyawan?');"><i class="fa fa-print"></i></a>
                             </td>
                         </tr>
                     @endforeach

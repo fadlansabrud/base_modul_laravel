@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('id_user')->unsigned();
             $table->string('posisi');
             $table->string('nama');
-            $table->integer('no_ktp');
+            $table->bigInteger('no_ktp');
             $table->string('ttl');
             $table->string('jenkel');
             $table->string('agama');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('status');
             $table->text('alamat_ktp');
             $table->text('alamat_tinggal');
-            $table->integer('no_telp');
+            $table->bigInteger('no_telp');
             $table->string('orang_terdekat');
             $table->string('skill');
             $table->integer('penempatan');
